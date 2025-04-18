@@ -15,7 +15,7 @@ public class Passenger {
 
     public Passenger() { }// Default Constructor
 
-    public Passenger(int passId, String name, int age, String dateBooked, double amountPaid, String boardingPoint, String destinationPoint, int busNo, int seatNo, String gender, String contactNumber) {
+    public Passenger(int passId, String name, int age, String dateBooked, double amountPaid, String boardingPoint, String destinationPoint, int busNo, String gender, String contactNumber) {
         this.passId = passId;
         this.name = name;
         this.age = age;
@@ -24,7 +24,7 @@ public class Passenger {
         this.boardingPoint = boardingPoint;
         this.destinationPoint = destinationPoint;
         this.busNo = busNo;
-        this.seatNo = seatNo;
+//        this.seatNo = seatNo;
         this.gender = gender;
         this.contactNumber = contactNumber;
     }
