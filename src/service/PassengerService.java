@@ -3,7 +3,6 @@ package service;
 import db.DatabaseConnection;
 import model.Passenger;
 
-import java.awt.image.RescaleOp;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
