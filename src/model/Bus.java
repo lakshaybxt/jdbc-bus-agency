@@ -6,17 +6,17 @@ public class Bus {
     private String startingPoint;
     private String destination;
     private int capacity;
-    private boolean isAvailabe;
+    private boolean isAvailable;
 
     public Bus() { } // Default Constructor
 
-    public Bus(int busNo, String scheduleDate, String startingPoint, String destination, int capacity, boolean isAvailabe) {
+    public Bus(int busNo, String scheduleDate, String startingPoint, String destination, int capacity, boolean isAvailable) {
         this.busNo = busNo;
         this.scheduleDate = scheduleDate;
         this.startingPoint = startingPoint;
         this.destination = destination;
         this.capacity = capacity;
-        this.isAvailabe = isAvailabe;
+        this.isAvailable = isAvailable;
     }
 
     //Getters and Setters
@@ -60,11 +60,11 @@ public class Bus {
         this.capacity = capacity;
     }
 
-    public boolean isAvailabe() {
-        return isAvailabe;
+    public boolean isAvailable() {
+        return isAvailable;
     }
 
-    public void setAvailabe(boolean availabe) {
-        isAvailabe = availabe;
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 }

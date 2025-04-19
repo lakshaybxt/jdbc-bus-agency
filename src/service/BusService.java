@@ -17,7 +17,7 @@ public class BusService {
             preparedStatement.setInt(1, bus.getBusNo());
             preparedStatement.setString(2, bus.getScheduleDate());
             preparedStatement.setInt(3, bus.getCapacity());
-            preparedStatement.setBoolean(4, bus.isAvailabe());
+            preparedStatement.setBoolean(4, bus.isAvailable());
             preparedStatement.setString(5, bus.getStartingPoint());
             preparedStatement.setString(6, bus.getDestination());
 
@@ -54,7 +54,7 @@ public class BusService {
     }
 
     public List<Bus> listAvailableBuses() {
-        List<Bus> availabeBuses = new ArrayList<>();
+        List<Bus> availableBuses = new ArrayList<>();
         String sql = "SELECT * FROM BUS WHERE isAvailable = true";
         try(Connection connection = DatabaseConnection.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -69,12 +69,12 @@ public class BusService {
                         resultSet.getInt("capacity"),
                         resultSet.getBoolean("isAvailable")
                 );
-                availabeBuses.add(bus);
+                availableBuses.add(bus);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return availabeBuses;
+        return availableBuses;
     }
 
     public Bus getBusByNumber(int busNo) {
@@ -115,7 +115,7 @@ public class BusService {
         }
     }
 
-    public void updateBusAvailabiltiy(int busNo, boolean isAvailable) {
+    public void updateBusAvailability(int busNo, boolean isAvailable) {
         String sql = "UPDATE Bus SET isAvailable = ? WHERE busNo = ?";
         try(Connection connection = DatabaseConnection.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {

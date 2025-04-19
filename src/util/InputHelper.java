@@ -35,16 +35,16 @@ public class InputHelper {
         return scanner.nextBoolean();
     }
 
-    public static double realDouble(String prompt) {
-        System.out.println(prompt); {
-            while(!scanner.hasNextDouble()) {
-                System.out.println("Invalid input. Please enter a valid number.");
-                scanner.next();
-                System.out.println(prompt);
-            }
-            return scanner.nextDouble();
+    public static double readDouble(String prompt) {
+        System.out.println(prompt);
+        while (!scanner.hasNextDouble()) {
+            System.out.println("Invalid input. Please enter a valid double.");
+            scanner.next();
+            System.out.println(prompt);
         }
+        return scanner.nextDouble();
     }
+
 
     public static void closeScanner() {
         scanner.close();

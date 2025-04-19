@@ -14,7 +14,8 @@ import java.util.List;
 public class PassengerService {
 
     public boolean addPassenger(Passenger passenger) {
-        String sql = "INSERT INTO passenger (name, age, bookedDate, amount, boardingPoint, DestinationPoint, busNo) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO passenger (name, age, dateBooked, amountPaid, boardingPoint, destinationPoint, busNo, gender, contactNumber)\n" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
@@ -25,6 +26,9 @@ public class PassengerService {
             preparedStatement.setString(5, passenger.getBoardingPoint());
             preparedStatement.setString(6, passenger.getDestinationPoint());
             preparedStatement.setInt(7, passenger.getBusNo());
+            preparedStatement.setString(8, passenger.getGender());
+            preparedStatement.setString(9, passenger.getContactNumber());
+
 
             int rows = preparedStatement.executeUpdate();
             return rows > 0;
@@ -94,8 +98,8 @@ public class PassengerService {
         String sql = "DELETE FROM passenger WHERE passId = ?";
 
         try(Connection connection = DatabaseConnection.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);) {
-            preparedStatement.setInt(2, id);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, id);
             int rows = preparedStatement.executeUpdate();
             return  rows > 0;
         } catch (SQLException e) {
